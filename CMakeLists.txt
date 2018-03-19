@@ -14,6 +14,7 @@ set(CERES_TAG 202dd9f3a13f6d71c476c40aee05d967421212dd) #version 1.12
 # The configure step fails at catkin_package() if this directory
 # doesn't exist yet. Create it at configure time!
 file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
+file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include/ceres/internal/miniglog)
 
 # Patch away the linking to the gomp OpenMP implementation, in case we use the Intel OpenMP implementation and Clang.
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
