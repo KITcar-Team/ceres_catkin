@@ -27,9 +27,7 @@ ExternalProject_Add(ceres_src
   GIT_TAG ${CERES_TAG}
   UPDATE_COMMAND ""
   CONFIGURE_COMMAND cmake  
-    -DGFLAGS=ON 
-    -DGFLAGS_LIBRARY=${gflags_catkin_LIBRARIES}
-    -DGFLAGS_INCLUDE_DIR=${gflags_catkin_INCLUDE_DIR}
+    -DGFLAGS=OFF
     -DGLOG_INCLUDE_DIR=${glog_catkin_INCLUDE_DIR}
     -DGLOG_LIBRARY=${glog_catkin_LIBRARIES}
     -DBUILD_DOCUMENTATION=OFF 
@@ -47,7 +45,7 @@ ExternalProject_Add(ceres_src
   BUILD_COMMAND make -j8
   INSTALL_COMMAND make install -j8
 )
-add_dependencies(ceres_src glog_catkin gflags_catkin suitesparse)
+add_dependencies(ceres_src glog_catkin suitesparse)
 
 cs_add_library(${PROJECT_NAME} src/dependency_tracker.cc)
 add_dependencies(${PROJECT_NAME} ceres_src)
